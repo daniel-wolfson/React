@@ -1,15 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using JobViewsApi.Interfaces;
+using JobViewsApi.Middleware;
+using JobViewsApi.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 
 namespace DataServices
@@ -35,8 +31,11 @@ namespace DataServices
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "service", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "PandoLogic JobApi service", Version = "v1" });
             });
+
+            // logic services
+            services.AddScoped<IJobDataService, JobDataService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,8 +45,11 @@ namespace DataServices
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "service v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "JobApi service v1"));
             }
+
+            app.UseMiddleware<ApiContextMiddleware>();
+            app.UseMiddleware<ApiErrorHandlingMiddleware>();
 
             app.UseHttpsRedirection();
 

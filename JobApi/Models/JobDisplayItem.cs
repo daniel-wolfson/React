@@ -1,6 +1,6 @@
 using System;
 
-namespace DataServices
+namespace JobViewsApi.Models
 {
     ///<summary> Job display/dto object </summary>
     public class JobDisplayItem

@@ -1,15 +1,13 @@
 using System;
 
-namespace DataServices
+namespace JobViewsApi.Models
 {
     ///<summary> Job data item <summary>
-    public class JobDataItem 
+    public class Job
     {
         public Guid Id { get; set; }
         public string Description { get; set; }
-        public DateTime Date { get; set; }
-        public JobViewStatus JobStatus { get; set; }
+        public DateTime CreateDate { get; set; }
         public bool Active { get; set; } = true;
-        public int PredictedViewCount { get; set; }
     }
 }
