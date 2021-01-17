@@ -1,8 +1,11 @@
+using JobViewsApi.Core;
+using JobViewsApi.Filters;
 using JobViewsApi.Interfaces;
 using JobViewsApi.Middleware;
 using JobViewsApi.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -34,6 +37,10 @@ namespace DataServices
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "PandoLogic JobApi service", Version = "v1" });
             });
 
+            services
+                .AddMvc(options => options.Filters.Add(typeof(ApiExceptionFilter)))
+                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+
             // logic services
             services.AddScoped<IJobDataService, JobDataService>();
         }
@@ -41,6 +48,8 @@ namespace DataServices
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            ApiContext.ServiceProvider = app.ApplicationServices;
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

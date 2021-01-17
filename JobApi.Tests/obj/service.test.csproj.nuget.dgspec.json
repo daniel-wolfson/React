@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "d:\\Projects\\pandologic_react_core\\service.test\\service.test.csproj": {}
+    "D:\\Projects\\pandologic_react_core\\JobApi.Tests\\service.test.csproj": {}
   },
   "projects": {
-    "d:\\Projects\\pandologic_react_core\\service.test\\service.test.csproj": {
+    "D:\\Projects\\pandologic_react_core\\JobApi.Tests\\service.test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\Projects\\pandologic_react_core\\service.test\\service.test.csproj",
-        "projectName": "service.test",
-        "projectPath": "d:\\Projects\\pandologic_react_core\\service.test\\service.test.csproj",
+        "projectUniqueName": "D:\\Projects\\pandologic_react_core\\JobApi.Tests\\service.test.csproj",
+        "projectName": "JobApi.Tests",
+        "projectPath": "D:\\Projects\\pandologic_react_core\\JobApi.Tests\\service.test.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "d:\\Projects\\pandologic_react_core\\service.test\\obj\\",
+        "outputPath": "D:\\Projects\\pandologic_react_core\\JobApi.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -23,15 +23,15 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net5.0"
+          "netcoreapp3.1"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net5.0": {
-            "targetAlias": "net5.0",
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -42,8 +42,8 @@
         }
       },
       "frameworks": {
-        "net5.0": {
-          "targetAlias": "net5.0",
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.AspNetCore": {
               "target": "Package",
