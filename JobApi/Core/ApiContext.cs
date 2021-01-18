@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -28,15 +27,4 @@ namespace JobViewsApi.Core
             }
         }
     }
-=======
-using Microsoft.Extensions.DependencyInjection;
-
-namespace JobViewsApi.Core
-{
-    /// <summary> General context, contains: Identity, ServiceProvider, HttpContext, Cache, Configurations, Helpers </summary>
-    public static class ApiContext
-    {
-        public static IServiceScope ServiceScope { get; set; }
-    }
->>>>>>> b8ef9e1bfc621577860a6cfbc89b75f90aa25004
 }
