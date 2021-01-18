@@ -24,6 +24,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "JobClient(1)", "JobClient\"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "62209"
+		SlnRelativePath = "JobClient\"
 	EndProjectSection
 EndProject
 Global
