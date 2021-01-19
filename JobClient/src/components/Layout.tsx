@@ -8,7 +8,7 @@ export class Layout extends Component {
   render () {
     return (
       <div className="h-100">
-        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css' />
+        
         {/* <NavMenu /> */}
         <Container className="d-flex align-items-center h-100">
           {this.props.children}
