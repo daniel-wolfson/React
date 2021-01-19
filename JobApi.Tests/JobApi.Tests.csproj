@@ -7,7 +7,7 @@
   </PropertyGroup>
   <ItemGroup>
     <None Remove="AppData\jobs.json" />
-    <None Remove="AppData\jobsData.json" />
+    <None Remove="AppData\jobViews.json" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AppData\jobs.json">
@@ -15,7 +15,7 @@
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="AppData\jobsData.json">
+    <Content Include="AppData\jobViews.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>

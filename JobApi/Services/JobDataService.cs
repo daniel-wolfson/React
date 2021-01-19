@@ -26,9 +26,9 @@ namespace JobViewsApi.Services
         }
 
         /// <summary> get all active jobs </summary>
-        public async Task<IEnumerable<JobViewItem>> GetJobDataItems()
+        public async Task<IEnumerable<JobView>> GetJobDataItems()
         {
-            var results = await GetDataAsync<JobViewItem>("jobsData");
+            var results = await GetDataAsync<JobView>("jobViews");
             return results;
         }
 

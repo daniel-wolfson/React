@@ -4,7 +4,7 @@ namespace JobViewsApi.Models
 {
 
     ///<summary> Job data item <summary>
-    public class JobViewItem
+    public class JobView
     {
         public Guid JobId { get; set; }
         public DateTime ViewDate { get; set; }

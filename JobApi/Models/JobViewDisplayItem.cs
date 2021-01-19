@@ -3,7 +3,7 @@ using System;
 namespace JobViewsApi.Models
 {
     ///<summary> Job display/dto object </summary>
-    public class JobDisplayItem
+    public class JobViewDisplayItem
     {
         public DateTime Date { get; set; }
         public int JobViews { get; set; }

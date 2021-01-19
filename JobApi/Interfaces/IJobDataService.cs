@@ -7,6 +7,6 @@ namespace JobViewsApi.Interfaces
     public interface IJobDataService
     {
         Task<IEnumerable<Job>> GetActiveJobs();
-        Task<IEnumerable<JobViewItem>> GetJobDataItems();
+        Task<IEnumerable<JobView>> GetJobDataItems();
     }
 }
