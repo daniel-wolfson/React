@@ -1,10 +1,9 @@
-<<<<<<< HEAD
 import React, { Component } from 'react';
 
-export class Counter extends Component {
+export class Counter extends Component<any, any> {
   static displayName = Counter.name;
 
-  constructor(props) {
+  constructor(props: any) {
     super(props);
     this.state = { currentCount: 0 };
     this.incrementCounter = this.incrementCounter.bind(this);
@@ -30,36 +29,4 @@ export class Counter extends Component {
     );
   }
 }
-=======
-import React, { Component } from 'react';
 
-export class Counter extends Component {
-  static displayName = Counter.name;
-
-  constructor(props) {
-    super(props);
-    this.state = { currentCount: 0 };
-    this.incrementCounter = this.incrementCounter.bind(this);
-  }
-
-  incrementCounter() {
-    this.setState({
-      currentCount: this.state.currentCount + 1
-    });
-  }
-
-  render() {
-    return (
-      <div>
-        <h1>Counter</h1>
-
-        <p>This is a simple example of a React component.</p>
-
-        <p aria-live="polite">Current count: <strong>{this.state.currentCount}</strong></p>
-
-        <button className="btn btn-primary" onClick={this.incrementCounter}>Increment</button>
-      </div>
-    );
-  }
-}
->>>>>>> b8ef9e1bfc621577860a6cfbc89b75f90aa25004
