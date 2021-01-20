@@ -36,10 +36,10 @@ This app features:
 1.2 build from visual studio code:
     - build: dotnet build .
 
-1.3 start:
+1.3 unit test (xUnit) api:
+    - start with visual studio unit test explorer
+
+1.4 start api:
     - cd pandologic_react_core\JobApi\bin\Debug\netcoreapp3.1
     - JobViewsApi.exe
     - app starting on http://localhost:5000
-
-1.3 unit test (xUnit) api:
-    - start with visual studio unit test explorer
