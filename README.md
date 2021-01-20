@@ -45,6 +45,6 @@ Current RootDirectory: [[drive:\\projects]\pandologic_react_core]
     - start with visual studio unit test explorer
 
 1.4 start api:
-    - cd pandologic_react_core\JobApi\bin\Debug\netcoreapp3.1
+    - cd [RootDirectory]\JobApi\bin\Debug\netcoreapp3.1
     - JobViewsApi.exe
     - app starting on http://localhost:5000
