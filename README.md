@@ -31,13 +31,14 @@ This app features:
 ## Build and start JobApi (asp net web api)
 
 1.1 build from visual studio (or visual studio code)
-    - build and solution: F5, Ctrl-F5
+    - build and solution
 
 1.2 build from visual studio code:
-   - build: dotnet build .
-   - for start:
-        cd pandologic_react_core\JobApi\bin\Debug\netcoreapp3.1
-        JobViewsApi.exe
+    - build: dotnet build .
+
+1.3 start:
+    - cd pandologic_react_core\JobApi\bin\Debug\netcoreapp3.1
+    - JobViewsApi.exe
     - app starting on http://localhost:5000
 
 1.3 unit test (xUnit) api:
