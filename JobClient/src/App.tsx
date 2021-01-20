@@ -4,7 +4,6 @@ import { JobViewChart } from "./components/JobViewChart";
 import { Layout } from "./components/Layout";
 
 import { IState } from "./store/ISate";
-import * as actionTypes from './constants/action-types';
 import { connect } from "react-redux";
 
 function App(props: any) {
