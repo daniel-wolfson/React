@@ -1,6 +1,8 @@
 using JobViewsApi.Interfaces;
+using JobViewsApi.Models;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -16,6 +18,14 @@ namespace JobViewsApi.Controllers
             _dataService = dataService;
         }
 
+        [HttpGet("GetJobs")]
+        [SwaggerOperation(Summary = "JobApi GetJobs", Description = "Get jobs from json data file")]
+        public async Task<IEnumerable<Job>> GetJobs()
+        {
+            var activeJobs = await _dataService.GetActiveJobs();
+            return activeJobs;
+        }
+
         [HttpGet("GetJobViews")]
         [SwaggerOperation(Summary = "JobApi GetJobViews", Description = "Get job views from json data file")]
         public async Task<IActionResult> GetJobViews()
@@ -27,9 +37,9 @@ namespace JobViewsApi.Controllers
                 .GroupBy(item => new { item.ViewDate, item })
                 .Select(g => new
                 {
-                    jobViewDate = g.Key.ViewDate,
-                    jobViewsPredicted = g.Key.item.ViewCountPredicted,
-                    jobViews = g.Sum(x => x.ViewCount),
+                    viewDate = g.Key.ViewDate,
+                    viewsPredicted = g.Key.item.ViewCountPredicted,
+                    views = g.Sum(x => x.ViewCount),
                     activeJobs = activeJobs.Count(x => x.Active)
                 })
                 .ToList();

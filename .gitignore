@@ -23,5 +23,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 /.vs
-*.cache
 .eslintcache
+.cache
+JobApi.Tests/obj/project.assets.json
+JobApi.Tests/obj/JobApi.Tests.csproj.nuget.dgspec.json
+JobApi.Tests/obj/project.assets.json
+JobApi.Tests/obj/Debug/netcoreapp3.1/JobApi.Tests.csprojAssemblyReference.cache

@@ -31,7 +31,26 @@ namespace DataServices
                 configuration.RootPath = "client-app/dist";
             });
 
+            services.AddCors(options => options.AddPolicy("ApiCorsPolicy", builder =>
+            {
+                builder
+                    .SetIsOriginAllowed(origin => true)
+                    .AllowCredentials()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader();
+            }));
+
             services.AddControllers();
+            //.AddNewtonsoftJson(options =>
+            //{
+            //    options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+            //    options.UseMemberCasing();
+            //})
+            //.AddJsonOptions(jsonOptions =>
+            //{
+            //    jsonOptions.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+            //});
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "PandoLogic JobApi service", Version = "v1" });
@@ -60,7 +79,8 @@ namespace DataServices
             app.UseMiddleware<ApiContextMiddleware>();
             app.UseMiddleware<ApiErrorHandlingMiddleware>();
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
+            app.UseCors("ApiCorsPolicy");
 
             app.UseRouting();
 
@@ -71,16 +91,16 @@ namespace DataServices
                 endpoints.MapControllers();
             });
 
-            app.UseSpa(spa =>
-            {
-                spa.Options.SourcePath = "client";
+            //app.UseSpa(spa =>
+            //{
+            //    spa.Options.SourcePath = "client";
 
-                if (env.IsDevelopment())
-                {
-                    spa.UseProxyToSpaDevelopmentServer("http://localhost:3000");
-                    // spa.UseReactDevelopmentServer(npmScript: "start");
-                }
-            });
+            //    if (env.IsDevelopment())
+            //    {
+            //        spa.UseProxyToSpaDevelopmentServer("http://localhost:3000");
+            //        // spa.UseReactDevelopmentServer(npmScript: "start");
+            //    }
+            //});
         }
     }
 }

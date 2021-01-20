@@ -1,58 +1,99 @@
 import React from "react";
 import { Bar } from "react-chartjs-2";
+import { Job } from "../models/job.model";
+import { JobView } from "../models/jobview.model";
 
-interface IProps {}
+interface IProps {
+  appLoading: boolean;
+  jobs: Job[];
+  jobViews: JobView[];
+}
 
 export interface IState {
-  data: (string | number)[][];
-  options: {};
+  labels: [];
+  datasets: [][];
 }
+
+const months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
+const convertDate = (date_str: string) => {
+  const temp_date = new Date(date_str);
+  return months[temp_date.getMonth() - 1] + " " + temp_date.getDate();
+};
 
 const rand = () => Math.round(Math.random() * 20 - 10);
 
-export class JobViewChart extends React.Component {
-  
-  options = {
-    title: {
-      display: true,
-      text: "Comulative job views vs. prediction",
-      fontSize: 20,
-    },
-    legend: {
-      display: true,
-      position: "bottom",
-      labels: {
-        fontColor: "#323130",
-        fontSize: 14,
-      },
-    },
-    vAxis: { title: "Job views" },
-    hAxis: { title: "Jobs" }
-  };
+export class JobViewChart extends React.Component<any, any> {
+  options: {};
 
   constructor(props: IProps) {
     super(props);
 
+    let labels: string[] = [];
+    let activeJobs: number[] = [];
+    let views: number[] = [];
+    let viewsPredicted: number[] = [];
+
+    if (props.jobViews && props.jobViews.length) {
+      labels = props.jobViews
+        ? props.jobViews.map((x) => convertDate(x.viewDate))
+        : [];
+
+        activeJobs = props.jobViews.map((x) => x.activeJobs);
+      views = props.jobViews.map((x) => x.views);
+      viewsPredicted = props.jobViews.map((x) => x.viewsPredicted);
+    }
+
+    this.options = {
+      title: {
+        display: true,
+        text: "Comulative job views vs. prediction",
+        fontSize: 20,
+      },
+      legend: {
+        display: true,
+        position: "bottom",
+        labels: {
+          fontColor: "#323130",
+          fontSize: 14,
+        },
+      },
+      scales: {
+        yAxes: [
+          {
+            title: "Job views",
+            ticks: {
+              suggestedMin: 0,
+              suggestedMax: 1000,
+            },
+          },
+        ],
+      },
+    };
+
     this.state = {
-      labels: ["January", "February", "March", "April", "May"],
+      labels: labels, //["January", "February", "March", "April", "May"],
       datasets: [
         {
           type: "line",
-          label: "Dataset 1",
+          label: "Job views",
           borderColor: "rgb(54, 162, 235)",
           borderWidth: 15,
           fill: false,
-          data: [
-            rand(),
-            rand(),
-            rand(),
-            rand(),
-            rand(),
-            rand(),
-            rand(),
-            rand(),
-            rand(),
-          ],
+          data: views,
           pointBorderColor: "rgba(75,192,192,1)",
           pointBackgroundColor: "#fff",
           pointBorderWidth: 1,
@@ -65,27 +106,17 @@ export class JobViewChart extends React.Component {
         },
         {
           type: "line",
-          label: "Dataset 2",
+          label: "Predicted job views",
           borderColor: "rgb(154, 162, 235)",
           borderWidth: 2,
           fill: false,
-          data: [
-            rand(),
-            rand(),
-            rand(),
-            rand(),
-            rand(),
-            rand(),
-            rand(),
-            rand(),
-            rand(),
-          ],
+          data: viewsPredicted,
         },
         {
           type: "bar",
-          label: "Dataset 2",
+          label: "Jobs",
           backgroundColor: "rgb(255, 99, 132)",
-          data: [rand(), rand(), rand(), rand(), rand(), rand(), rand()],
+          data: activeJobs,
           borderColor: "white",
           borderWidth: 2,
         },
