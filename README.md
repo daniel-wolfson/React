@@ -35,16 +35,10 @@ Current RootDirectory: [[drive:\\projects]\pandologic_react_core]
 
 ## Build and start JobApi (asp net web api)
 
-1.1 build from visual studio (or visual studio code)
-    - build and solution
-
-1.2 build from visual studio code:
-    - dotnet build .
-
-1.3 unit test (xUnit) api:
-    - start with visual studio unit test explorer
-
-1.4 start api:
+- build from visual studio (or visual studio code): build solution
+- build from visual studio code: dotnet build .
+- unit test (xUnit) api: start with visual studio unit test explorer
+- start api:
     - cd [RootDirectory]\JobApi\bin\Debug\netcoreapp3.1
     - JobViewsApi.exe
     - app starting on http://localhost:5000
