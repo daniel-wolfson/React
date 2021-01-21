@@ -39,7 +39,7 @@ Current RootDirectory: [[drive:\\projects]\pandologic_react_core]
     - build and solution
 
 1.2 build from visual studio code:
-    - build: dotnet build .
+    - dotnet build .
 
 1.3 unit test (xUnit) api:
     - start with visual studio unit test explorer
