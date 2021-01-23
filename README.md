@@ -30,7 +30,7 @@ Current RootDirectory: [[drive:\\projects]\pandologic_react_core]
 - cd [RootDirectory]\JobClient
 - npm install
 - npm run start
-- client working on http://localhost:3000
+- client working on http://localhost:3000 (Google Chrome for preference)
 - client working with web api started on http://localhost:5000
 
 ## Build and start JobApi (asp net web api)
